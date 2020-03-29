@@ -20,18 +20,21 @@ Development
 
 I have made this easier by adding a dev script
 
-`./scripts/dev`
+`./scripts/dev.sh`
 
 *Note that the react development server will compile and refresh on file changes*
+
+Production
+----------
+
+`docker-compose -f conf/docker-prod.yml up`
+
+I have made this easier by adding a production script
+
+`./scripts/prod.sh`
 
 Usage
 -----
 
 - expose new api endpoints in the server view
 - read from endpoints in client
-
-TODO
-----
-
-- work on production setup
-- move compose files to root of project
