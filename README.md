@@ -6,21 +6,29 @@ flask-react-nginx guide using docker-compose
 client
 ------
 
-The client directory was created using `create-react-app`. There are two Dockerfiles used for the client. One is for local development, using the npm development serer. The other builds the app into static files which are then server to nginx.
+The client directory was created using `create-react-app`. There are two Dockerfiles used for the client. One is for local development, using the npm development serer. The other builds the app into static files which are then serves them to nginx.
 
 server
 ------
 
-For this implementation, we want to run the flask application from the project root. This allows relative imports from the server directory, which is how I structure most of my flask applications.
+The server is responsible for exposing an api endpoint for client consumption. In this example, the client consumes the `/api/test/` endpoint in the `index.js` file.
 
-Usage
------
+Development
+-----------
 
 `docker-compose -f conf/docker-dev.yml up`
 
 I have made this easier by adding a dev script
 
 `./scripts/dev`
+
+*Note that the react development server will compile and refresh on file changes*
+
+Usage
+-----
+
+- expose new api endpoints in the server view
+- read from endpoints in client
 
 TODO
 ----
