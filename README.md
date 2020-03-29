@@ -13,6 +13,15 @@ server
 
 For this implementation, we want to run the flask application from the project root. This allows relative imports from the server directory, which is how I structure most of my flask applications.
 
+Usage
+-----
+
+`docker-compose -f conf/docker-dev.yml up`
+
+I have made this easier by adding a dev script
+
+`./scripts/dev`
+
 TODO
 ----
 
