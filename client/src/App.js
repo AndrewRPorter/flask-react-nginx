@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    // create a new XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // get a callback when the server responds
+    xhr.onload = function () {
+      // update the state of the component with the result here
+      setData(xhr.response);
+    };
+
+    // open the request with the verb and the url
+    xhr.open("GET", "/api/test");
+    // send the request
+    xhr.send();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <br/><p>From server: <span id="server"> </span></p>
-      </header>
+    <div>
+      <p>From server: {data}</p>
     </div>
   );
 }

@@ -1,31 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-function getData() {
-  // create a new XMLHttpRequest
-  var xhr = new XMLHttpRequest()
-
-  // get a callback when the server responds
-  xhr.onload = function() {
-    // update the state of the component with the result here
-    console.log(xhr.response);
-    document.getElementById('server').innerHTML = xhr.response;
-  }
-
-  // open the request with the verb and the url
-  xhr.open('GET', '/api/test')
-  // send the request
-  xhr.send()
-}
+function getData() {}
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 getData();
